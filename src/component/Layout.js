@@ -7,21 +7,13 @@ import Footer from 'footer'
 const Layout = () => {
     return (
         <div className="layout">
-            <header className="">
-
-            </header>
-            <nav className="">
-
-            </nav>
+            <Header/>
+            <NavBar/>
             <div>
                 {props.children}
             </div>
-            <div className="">
-
-            </div>
-            <footer className="">
-
-            </footer>
+            <SideBar/>
+            <Footer/>
         </div>
     )
 }
