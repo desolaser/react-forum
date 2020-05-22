@@ -1,14 +1,14 @@
 import React from 'react'
 import Typography from '@material-ui/core'
 
-const Header = () => {
+const MainPage = () => {
     return (
-        <header className="header">
+        <div className="main-page">
             <Typography variant="h1">
-                Forum
+                Main Page
             </Typography>
-        </header>
+        </div>
     )
 }
 
-export default Header
+export default MainPage
