@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from 'header'
-import NavBar from 'navBar'
-import SideBar from 'sideBar'
-import Footer from 'footer'
+import Header from './Header'
+import NavBar from './NavBar'
+import SideBar from './SideBar'
+import Footer from './Footer'
 
-const Layout = () => {
+const Layout = props => {
     return (
         <div className="layout">
             <Header/>
