@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import NavBar from './NavBar'
+import Body from './Body'
 import SideBar from './SideBar'
 import Footer from './Footer'
 
@@ -9,9 +10,9 @@ const Layout = props => {
         <div className="layout">
             <Header/>
             <NavBar/>
-            <div>
+            <Body>
                 {props.children}
-            </div>
+            </Body>
             <SideBar/>
             <Footer/>
         </div>
