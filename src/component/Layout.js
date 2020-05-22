@@ -13,7 +13,6 @@ const Layout = props => {
             <Body>
                 {props.children}
             </Body>
-            <SideBar/>
             <Footer/>
         </div>
     )

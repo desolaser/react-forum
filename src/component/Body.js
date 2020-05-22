@@ -14,10 +14,10 @@ const Body = props => {
     return (
         <div className={classes.root}>
             <Grid container spacing={4}>
-                <Grid item xs={9}>
+                <Grid item xs={12} sm={9}>
                     {props.children}
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={12} sm={3}>
                     <SideBar/>
                 </Grid>
             </Grid>
