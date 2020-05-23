@@ -1,12 +1,10 @@
 import React from 'react'
-import Typography from '@material-ui/core/Typography'
+import Category from './Category'
 
 const MainPage = () => {
     return (
         <div className="main-page">
-            <Typography variant="h1">
-                Main Page
-            </Typography>
+            <Category/>
         </div>
     )
 }
