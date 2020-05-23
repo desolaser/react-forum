@@ -27,9 +27,9 @@ function App() {
       <Layout>
         <Router>
           <Switch>
-            <Route to="/" component={MainPage}/>
-            <Route to="/posts" component={PostsPage}/>
-            <Route to="/single-post" component={SinglePostPage}/>
+            <Route path="/" exact component={MainPage}/>
+            <Route path="/posts" exact component={PostsPage}/>
+            <Route path="/single-post" exact component={SinglePostPage}/>
           </Switch>
         </Router>
       </Layout>
