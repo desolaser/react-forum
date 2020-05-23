@@ -38,6 +38,9 @@ const SinglePostPage = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
+            <Typography variant="h4" gutterBottom>
+                Create a React project from scratch
+            </Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={3}>
                     <Paper className={classes.paper}>
@@ -63,6 +66,55 @@ const SinglePostPage = () => {
                             </Grid>
                             <Grid item xs={2} align="right">
                                 <Typography variant="p">#1</Typography>
+                            </Grid>
+                        </Grid>
+                        <Divider />
+                        <div className={classes.content}>
+                            <Typography variant="p">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                It has survived not only five centuries, but also the leap into electronic typesetting, 
+                                remaining essentially unchanged. It was popularised in the 1960s with the release of 
+                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
+                                software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply
+                                dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book. It has survived not only five centuries,
+                                but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                                popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                                and more recently with desktop publishing software like Aldus PageMaker including versions 
+                                of Lorem Ipsum.
+                            </Typography>
+                        </div>
+                    </Paper>
+                </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={3}>
+                    <Paper className={classes.paper}>
+                        <Avatar className={classes.avatar}>
+                            <DraftsIcon className={classes.image}/>
+                        </Avatar>
+                        <Typography variant="h5" align="center">
+                            Doe John
+                        </Typography>
+                        <Typography variant="h6" align="center">
+                            Novice
+                        </Typography>
+                        <Typography variant="subtitle1">Posts: 4</Typography>
+                        <Typography variant="subtitle1">Comments: 15</Typography>
+                        <Typography variant="subtitle1">Joined: 15-09-1992</Typography>
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} sm={9}>
+                    <Paper className={classes.paper}>
+                        <Grid container spacing={2} className={classes.date}>
+                            <Grid item xs={10}>
+                                <Typography variant="p">Tuesday at 2:53</Typography>
+                            </Grid>
+                            <Grid item xs={2} align="right">
+                                <Typography variant="p">#2</Typography>
                             </Grid>
                         </Grid>
                         <Divider />
