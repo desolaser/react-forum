@@ -24,15 +24,15 @@ const theme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Layout>
-        <Router basename="/projects/forum/">
-          <Switch>
-            <Route path="/" exact component={MainPage}/>
-            <Route path="/posts" exact component={PostsPage}/>
-            <Route path="/single-post" exact component={SinglePostPage}/>
-          </Switch>
-        </Router>
-      </Layout>
+      <Router basename="/projects/forum/">
+        <Layout>
+            <Switch>
+              <Route path="/" exact component={MainPage}/>
+              <Route path="/posts" exact component={PostsPage}/>
+              <Route path="/single-post" exact component={SinglePostPage}/>
+            </Switch>
+        </Layout>
+      </Router>
     </ThemeProvider>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
@@ -32,193 +33,311 @@ const useStyles = makeStyles((theme) => ({
 
 const SideBar = () => {
     const classes = useStyles()
-    return (
+    return (        
         <div className={classes.root}>
             <Paper className={classes.title}>
                 <Typography variant="h5" align="center">
                     Latest posts
                 </Typography>
-            </Paper>
-            <Paper className={classes.paper}>
-                <Grid container spacing={2}>
-                    <Grid item>
-                        <ButtonBase className={classes.image}>
-                            <DraftsIcon/>
-                        </ButtonBase>
+            </Paper>            
+            <Link to="/single-post">
+                <Paper className={classes.paper}>
+                    <Grid container spacing={2}>
+                        <Grid item>
+                            <ButtonBase className={classes.image}>
+                                <DraftsIcon/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={12} sm container>
+                            <Grid item xs={12} container direction="column" spacing={4}>
+                                <Grid item xs>
+                                    <Typography variant="subtitle1">
+                                        React Redux tutorial
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        React - Javascript
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        John Doe
+                                    </Typography>
+                                </Grid>
+                            </Grid>                        
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm container>
-                        <Grid item xs={12} container direction="column" spacing={4}>
-                            <Grid item xs>
-                                <Typography variant="subtitle1">
-                                    React Redux tutorial
-                                </Typography>
-                                <Typography variant="body2">
-                                    React - Javascript
-                                </Typography>
-                                <Typography variant="body2">
-                                    John Doe
-                                </Typography>
-                            </Grid>
-                        </Grid>                        
+                    <Grid container spacing={2}>
+                        <Grid item xs>                       
+                            <Typography variant="caption" gutterBottom>
+                                Replies: 0
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm container>                        
+                            <Typography variant="caption" gutterBottom>
+                                12-24-2012
+                            </Typography>                       
+                        </Grid>
+                    </Grid>                
+                </Paper>
+            </Link>
+            <Link to="/single-post">
+                <Paper className={classes.paper}>
+                    <Grid container spacing={2}>
+                        <Grid item>
+                            <ButtonBase className={classes.image}>
+                                <DraftsIcon/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={12} sm container>
+                            <Grid item xs={12} container direction="column" spacing={4}>
+                                <Grid item xs>
+                                    <Typography variant="subtitle1">
+                                        React Redux tutorial
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        React - Javascript
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        John Doe
+                                    </Typography>
+                                </Grid>
+                            </Grid>                        
+                        </Grid>
                     </Grid>
-                </Grid>
-                <Grid container spacing={2}>
-                    <Grid item xs>                       
-                        <Typography variant="caption" gutterBottom>
-                            Replies: 0
-                        </Typography>
+                    <Grid container spacing={2}>
+                        <Grid item xs>                       
+                            <Typography variant="caption" gutterBottom>
+                                Replies: 0
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm container>                        
+                            <Typography variant="caption" gutterBottom>
+                                12-24-2012
+                            </Typography>                       
+                        </Grid>
+                    </Grid>                
+                </Paper>
+            </Link><Link to="/single-post">
+                <Paper className={classes.paper}>
+                    <Grid container spacing={2}>
+                        <Grid item>
+                            <ButtonBase className={classes.image}>
+                                <DraftsIcon/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={12} sm container>
+                            <Grid item xs={12} container direction="column" spacing={4}>
+                                <Grid item xs>
+                                    <Typography variant="subtitle1">
+                                        React Redux tutorial
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        React - Javascript
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        John Doe
+                                    </Typography>
+                                </Grid>
+                            </Grid>                        
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm container>                        
-                        <Typography variant="caption" gutterBottom>
-                            12-24-2012
-                        </Typography>                       
+                    <Grid container spacing={2}>
+                        <Grid item xs>                       
+                            <Typography variant="caption" gutterBottom>
+                                Replies: 0
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm container>                        
+                            <Typography variant="caption" gutterBottom>
+                                12-24-2012
+                            </Typography>                       
+                        </Grid>
+                    </Grid>                
+                </Paper>
+            </Link><Link to="/single-post">
+                <Paper className={classes.paper}>
+                    <Grid container spacing={2}>
+                        <Grid item>
+                            <ButtonBase className={classes.image}>
+                                <DraftsIcon/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={12} sm container>
+                            <Grid item xs={12} container direction="column" spacing={4}>
+                                <Grid item xs>
+                                    <Typography variant="subtitle1">
+                                        React Redux tutorial
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        React - Javascript
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        John Doe
+                                    </Typography>
+                                </Grid>
+                            </Grid>                        
+                        </Grid>
                     </Grid>
-                </Grid>                
-            </Paper>
-            <Paper className={classes.paper}>
-                <Grid container spacing={2}>
-                    <Grid item>
-                        <ButtonBase className={classes.image}>
-                            <DraftsIcon/>
-                        </ButtonBase>
+                    <Grid container spacing={2}>
+                        <Grid item xs>                       
+                            <Typography variant="caption" gutterBottom>
+                                Replies: 0
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm container>                        
+                            <Typography variant="caption" gutterBottom>
+                                12-24-2012
+                            </Typography>                       
+                        </Grid>
+                    </Grid>                
+                </Paper>
+            </Link><Link to="/single-post">
+                <Paper className={classes.paper}>
+                    <Grid container spacing={2}>
+                        <Grid item>
+                            <ButtonBase className={classes.image}>
+                                <DraftsIcon/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={12} sm container>
+                            <Grid item xs={12} container direction="column" spacing={4}>
+                                <Grid item xs>
+                                    <Typography variant="subtitle1">
+                                        React Redux tutorial
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        React - Javascript
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        John Doe
+                                    </Typography>
+                                </Grid>
+                            </Grid>                        
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm container>
-                        <Grid item xs={12} container direction="column" spacing={4}>
-                            <Grid item xs>
-                                <Typography variant="subtitle1">
-                                    React Redux tutorial
-                                </Typography>
-                                <Typography variant="body2">
-                                    React - Javascript
-                                </Typography>
-                                <Typography variant="body2">
-                                    John Doe
-                                </Typography>
-                            </Grid>
-                        </Grid>                        
+                    <Grid container spacing={2}>
+                        <Grid item xs>                       
+                            <Typography variant="caption" gutterBottom>
+                                Replies: 0
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm container>                        
+                            <Typography variant="caption" gutterBottom>
+                                12-24-2012
+                            </Typography>                       
+                        </Grid>
+                    </Grid>                
+                </Paper>
+            </Link><Link to="/single-post">
+                <Paper className={classes.paper}>
+                    <Grid container spacing={2}>
+                        <Grid item>
+                            <ButtonBase className={classes.image}>
+                                <DraftsIcon/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={12} sm container>
+                            <Grid item xs={12} container direction="column" spacing={4}>
+                                <Grid item xs>
+                                    <Typography variant="subtitle1">
+                                        React Redux tutorial
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        React - Javascript
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        John Doe
+                                    </Typography>
+                                </Grid>
+                            </Grid>                        
+                        </Grid>
                     </Grid>
-                </Grid>
-                <Grid container spacing={2}>
-                    <Grid item xs>                       
-                        <Typography variant="caption" gutterBottom>
-                            Replies: 0
-                        </Typography>
+                    <Grid container spacing={2}>
+                        <Grid item xs>                       
+                            <Typography variant="caption" gutterBottom>
+                                Replies: 0
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm container>                        
+                            <Typography variant="caption" gutterBottom>
+                                12-24-2012
+                            </Typography>                       
+                        </Grid>
+                    </Grid>                
+                </Paper>
+            </Link><Link to="/single-post">
+                <Paper className={classes.paper}>
+                    <Grid container spacing={2}>
+                        <Grid item>
+                            <ButtonBase className={classes.image}>
+                                <DraftsIcon/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={12} sm container>
+                            <Grid item xs={12} container direction="column" spacing={4}>
+                                <Grid item xs>
+                                    <Typography variant="subtitle1">
+                                        React Redux tutorial
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        React - Javascript
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        John Doe
+                                    </Typography>
+                                </Grid>
+                            </Grid>                        
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm container>                        
-                        <Typography variant="caption" gutterBottom>
-                            12-24-2012
-                        </Typography>                       
+                    <Grid container spacing={2}>
+                        <Grid item xs>                       
+                            <Typography variant="caption" gutterBottom>
+                                Replies: 0
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm container>                        
+                            <Typography variant="caption" gutterBottom>
+                                12-24-2012
+                            </Typography>                       
+                        </Grid>
+                    </Grid>                
+                </Paper>
+            </Link><Link to="/single-post">
+                <Paper className={classes.paper}>
+                    <Grid container spacing={2}>
+                        <Grid item>
+                            <ButtonBase className={classes.image}>
+                                <DraftsIcon/>
+                            </ButtonBase>
+                        </Grid>
+                        <Grid item xs={12} sm container>
+                            <Grid item xs={12} container direction="column" spacing={4}>
+                                <Grid item xs>
+                                    <Typography variant="subtitle1">
+                                        React Redux tutorial
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        React - Javascript
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        John Doe
+                                    </Typography>
+                                </Grid>
+                            </Grid>                        
+                        </Grid>
                     </Grid>
-                </Grid>                
-            </Paper>
-            <Paper className={classes.paper}>
-                <Grid container spacing={2}>
-                    <Grid item>
-                        <ButtonBase className={classes.image}>
-                            <DraftsIcon/>
-                        </ButtonBase>
-                    </Grid>
-                    <Grid item xs={12} sm container>
-                        <Grid item xs={12} container direction="column" spacing={4}>
-                            <Grid item xs>
-                                <Typography variant="subtitle1">
-                                    React Redux tutorial
-                                </Typography>
-                                <Typography variant="body2">
-                                    React - Javascript
-                                </Typography>
-                                <Typography variant="body2">
-                                    John Doe
-                                </Typography>
-                            </Grid>
-                        </Grid>                        
-                    </Grid>
-                </Grid>
-                <Grid container spacing={2}>
-                    <Grid item xs>                       
-                        <Typography variant="caption" gutterBottom>
-                            Replies: 0
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12} sm container>                        
-                        <Typography variant="caption" gutterBottom>
-                            12-24-2012
-                        </Typography>                       
-                    </Grid>
-                </Grid>                
-            </Paper>
-            <Paper className={classes.paper}>
-                <Grid container spacing={2}>
-                    <Grid item>
-                        <ButtonBase className={classes.image}>
-                            <DraftsIcon/>
-                        </ButtonBase>
-                    </Grid>
-                    <Grid item xs={12} sm container>
-                        <Grid item xs={12} container direction="column" spacing={4}>
-                            <Grid item xs>
-                                <Typography variant="subtitle1">
-                                    React Redux tutorial
-                                </Typography>
-                                <Typography variant="body2">
-                                    React - Javascript
-                                </Typography>
-                                <Typography variant="body2">
-                                    John Doe
-                                </Typography>
-                            </Grid>
-                        </Grid>                        
-                    </Grid>
-                </Grid>
-                <Grid container spacing={2}>
-                    <Grid item xs>                       
-                        <Typography variant="caption" gutterBottom>
-                            Replies: 0
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12} sm container>                        
-                        <Typography variant="caption" gutterBottom>
-                            12-24-2012
-                        </Typography>                       
-                    </Grid>
-                </Grid>                
-            </Paper>
-            <Paper className={classes.paper}>
-                <Grid container spacing={2}>
-                    <Grid item>
-                        <ButtonBase className={classes.image}>
-                            <DraftsIcon/>
-                        </ButtonBase>
-                    </Grid>
-                    <Grid item xs={12} sm container>
-                        <Grid item xs={12} container direction="column" spacing={4}>
-                            <Grid item xs>
-                                <Typography variant="subtitle1">
-                                    React Redux tutorial
-                                </Typography>
-                                <Typography variant="body2">
-                                    React - Javascript
-                                </Typography>
-                                <Typography variant="body2">
-                                    John Doe
-                                </Typography>
-                            </Grid>
-                        </Grid>                        
-                    </Grid>
-                </Grid>
-                <Grid container spacing={2}>
-                    <Grid item xs>                       
-                        <Typography variant="caption" gutterBottom>
-                            Replies: 0
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12} sm container>                        
-                        <Typography variant="caption" gutterBottom>
-                            12-24-2012
-                        </Typography>                       
-                    </Grid>
-                </Grid>                
-            </Paper>
+                    <Grid container spacing={2}>
+                        <Grid item xs>                       
+                            <Typography variant="caption" gutterBottom>
+                                Replies: 0
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm container>                        
+                            <Typography variant="caption" gutterBottom>
+                                12-24-2012
+                            </Typography>                       
+                        </Grid>
+                    </Grid>                
+                </Paper>
+            </Link>
         </div>
     )
 }
