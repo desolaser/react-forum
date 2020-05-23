@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button'
 import Modal from '@material-ui/core/Modal'
 import { makeStyles } from '@material-ui/styles'
 import RegisterModal from './RegisterModal'
+import LoginModal from './LoginModal'
 
 const useStyles = makeStyles({
     root: {
@@ -24,31 +25,48 @@ const useStyles = makeStyles({
 
 const NavBar = () => {
     const classes = useStyles()
-    const [open, setOpen] = useState(false)
+    const [registerOpen, setRegisterOpen] = useState(false)
+    const [loginOpen, setLoginOpen] = useState(false)
 
-    const handleOpen = () => {
-        setOpen(true)
+    const handleRegisterOpen = () => {
+        setRegisterOpen(true)
     }
 
-    const handleClose = () => {
-        setOpen(false)
+    const handleRegisterClose = () => {
+        setRegisterOpen(false)
+    }
+
+    const handleLoginOpen = () => {
+        setLoginOpen(true)
+    }
+
+    const handleLoginClose = () => {
+        setLoginOpen(false)
     }
 
     return (
         <AppBar position="static" className={classes.root}>
             <Toolbar className={classes.toolbar}>
                 <div className={classes.toolbarButtons}>
-                    <Button color="inherit" className={classes.button} onClick={handleOpen}>Sign up</Button>
-                    <Button color="inherit" className={classes.button}>Login</Button>
+                    <Button color="inherit" className={classes.button} onClick={handleRegisterOpen}>Sign up</Button>
+                    <Button color="inherit" className={classes.button} onClick={handleLoginOpen}>Login</Button>
                 </div>
             </Toolbar>
             <Modal
-                open={open}
-                onClose={handleClose}
+                open={registerOpen}
+                onClose={handleRegisterClose}
                 aria-labelledby="sign-up-modal"
                 aria-describedby="sign-up-modal-description"
             >
                 <RegisterModal/>
+            </Modal>
+            <Modal
+                open={loginOpen}
+                onClose={handleLoginClose}
+                aria-labelledby="sign-up-modal"
+                aria-describedby="sign-up-modal-description"
+            >
+                <LoginModal/>
             </Modal>
         </AppBar>
     )
