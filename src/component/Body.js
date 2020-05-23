@@ -13,7 +13,7 @@ const Body = props => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <Grid container spacing={4}>
+            <Grid container spacing={0}>
                 <Grid item xs={12} sm={9}>
                     {props.children}
                 </Grid>

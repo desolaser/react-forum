@@ -5,6 +5,8 @@ const MainPage = () => {
     return (
         <div className="main-page">
             <Category/>
+            <Category/>
+            <Category/>
         </div>
     )
 }

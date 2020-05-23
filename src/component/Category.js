@@ -9,7 +9,7 @@ import DraftsIcon from '@material-ui/icons/Drafts'
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      margin: '30px 20px'
+      margin: '30px 15px'
     },
     paper: {
       padding: theme.spacing(2),
