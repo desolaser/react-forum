@@ -25,7 +25,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <Router>
+        <Router basename="/projects/forum/">
           <Switch>
             <Route path="/" exact component={MainPage}/>
             <Route path="/posts" exact component={PostsPage}/>

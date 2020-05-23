@@ -1,5 +1,6 @@
 {
   "name": "react-forum",
+  "homepage": "http://discretuum-page.test/projects/forum/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
