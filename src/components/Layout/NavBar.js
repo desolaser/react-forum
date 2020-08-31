@@ -67,8 +67,8 @@ const NavBar = () => {
       <Modal
         open={registerOpen}
         onClose={handleRegisterClose}
-        aria-labelledby="sign-up-modal"
-        aria-describedby="sign-up-modal-description"
+        aria-labelledby="sign-in-modal"
+        aria-describedby="sign-in-modal-description"
       >
         <RegisterModal />
       </Modal>

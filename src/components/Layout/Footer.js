@@ -88,7 +88,7 @@ const Footer = () => {
         </Grid>
       </Grid>
       <Divider />
-      <Typography variant="p" align="center">
+      <Typography variant="body1" align="center">
         Copyright @Discretuum 2020
       </Typography>
     </Paper>
