@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import FilterBar from "../component/FilterBar";
-import Post from "../component/Post";
+import FilterBar from "./FilterBar";
+import Post from "./Post";
 
 const useStyles = makeStyles((theme) => ({
   root: {
