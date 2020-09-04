@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
 const RegisterModal = () => {
   const classes = useStyles();
   const firebase = useFirebase();
-  const history = useHistory();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
