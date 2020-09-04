@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LoginModal = () => {
+const LoginModal = ({ closeModal }) => {
   const classes = useStyles();
   const firebase = useFirebase();
   const history = useHistory();
@@ -64,6 +64,8 @@ const LoginModal = () => {
           })
         );
         history.push("/");
+        closeModal();
+        alert("You are logged in now");
       })
       .catch((error) => setError(error));
   };
@@ -90,6 +92,7 @@ const LoginModal = () => {
         </Typography>
         <Input
           className={classes.textField}
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           id="password"

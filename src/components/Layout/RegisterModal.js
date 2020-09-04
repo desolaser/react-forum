@@ -49,7 +49,7 @@ const RegisterModal = () => {
   const [language, setLanguage] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = ({ closeModal }) => {
     firebase
       .doCreateUserWithEmailAndPassword(email, password)
       .then((authUser) => {
@@ -59,6 +59,7 @@ const RegisterModal = () => {
           language,
         });
         alert("You have been registered successfully, try to log in");
+        closeModal();
       })
       .catch((error) => setError(error));
   };
