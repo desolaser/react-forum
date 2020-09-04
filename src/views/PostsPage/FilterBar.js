@@ -1,11 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
-import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 import Pagination from "./Pagination";
