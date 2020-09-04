@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import FormControl from "@material-ui/core/FormControl";
@@ -6,6 +7,7 @@ import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/styles";
 import { login } from "../../redux/actions";
+import { useFirebase } from "../../modules/firebase";
 
 import { useDispatch } from "react-redux";
 
@@ -42,20 +44,30 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginModal = () => {
   const classes = useStyles();
-  const [username, setUsername] = useState("");
+  const firebase = useFirebase();
+  const history = useHistory();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    dispatch(
-      login({
-        username,
-        password,
+    firebase
+      .doSignInWithEmailAndPassword(email, password)
+      .then((authUser) => {
+        dispatch(
+          login({
+            username: authUser.user.username,
+            email: authUser.user.email,
+            password: authUser.user.password,
+            language: authUser.user.language,
+          })
+        );
+        history.push("/");
       })
-    );
+      .catch((error) => setError(error));
   };
 
-  const isInvalid = username === "" || password === "";
+  const isInvalid = email === "" || password === "";
 
   return (
     <Paper className={classes.paper}>
@@ -66,8 +78,8 @@ const LoginModal = () => {
         </Typography>
         <Input
           className={classes.textField}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           id="name"
         />
       </FormControl>
@@ -89,6 +101,18 @@ const LoginModal = () => {
       >
         Login
       </Button>
+      {error && (
+        <Paper
+          style={{
+            backgroundColor: "tomato",
+            padding: 10,
+            marginTop: 10,
+            color: "white",
+          }}
+        >
+          {error.message}
+        </Paper>
+      )}
     </Paper>
   );
 };
