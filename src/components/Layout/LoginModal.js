@@ -6,10 +6,11 @@ import FormControl from "@material-ui/core/FormControl";
 import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/styles";
+import { useDispatch } from "react-redux";
+
 import { login } from "../../redux/actions";
 import { useFirebase } from "../../modules/firebase";
-
-import { useDispatch } from "react-redux";
+import Alert from "../Alert";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -105,18 +106,7 @@ const LoginModal = ({ closeModal }) => {
       >
         Login
       </Button>
-      {error && (
-        <Paper
-          style={{
-            backgroundColor: "tomato",
-            padding: 10,
-            marginTop: 10,
-            color: "white",
-          }}
-        >
-          {error.message}
-        </Paper>
-      )}
+      {error && <Alert>{error.message}</Alert>}
     </Paper>
   );
 };
