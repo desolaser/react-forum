@@ -55,6 +55,8 @@ const LoginModal = () => {
     );
   };
 
+  const isInvalid = username === "" || password === "";
+
   return (
     <Paper className={classes.paper}>
       <Typography variant="h4">Login</Typography>
@@ -80,7 +82,11 @@ const LoginModal = () => {
           id="password"
         />
       </FormControl>
-      <Button onClick={handleSubmit} className={classes.button}>
+      <Button
+        onClick={handleSubmit}
+        className={classes.button}
+        disabled={isInvalid}
+      >
         Login
       </Button>
     </Paper>
