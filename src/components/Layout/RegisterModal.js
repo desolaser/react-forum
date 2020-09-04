@@ -136,6 +136,7 @@ const RegisterModal = () => {
           style={{
             backgroundColor: "tomato",
             padding: 10,
+            marginTop: 10,
             color: "white",
           }}
         >
