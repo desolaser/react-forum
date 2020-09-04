@@ -8,7 +8,7 @@ const Layout = (props) => {
   return (
     <div className="layout">
       <Header />
-      <NavBar history={props.history} />
+      <NavBar />
       <Body>{props.children}</Body>
       <Footer />
     </div>

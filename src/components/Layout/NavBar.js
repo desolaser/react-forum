@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-const NavBar = ({ history }) => {
+const NavBar = () => {
   const classes = useStyles();
   const [registerOpen, setRegisterOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
@@ -69,7 +69,6 @@ const NavBar = ({ history }) => {
         onClose={handleRegisterClose}
         aria-labelledby="sign-in-modal"
         aria-describedby="sign-in-modal-description"
-        history={history}
       >
         <RegisterModal />
       </Modal>
