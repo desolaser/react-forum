@@ -45,7 +45,7 @@ const FilterBar = () => {
             <ArrowRightIcon />
           </Button>
         </Grid>
-        <Grid items xs={12} className={classes.filterTitle}>
+        <Grid items xs={12} sm={1} className={classes.filterTitle}>
           <ArrowDropDownIcon />
           <Typography variant="p">Filters</Typography>
         </Grid>
