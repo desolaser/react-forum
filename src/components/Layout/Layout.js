@@ -23,8 +23,8 @@ const Layout = (props) => {
         <Header />
         <NavBar />
         <Body>{props.children}</Body>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };
