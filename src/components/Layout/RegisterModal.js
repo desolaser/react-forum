@@ -35,7 +35,7 @@ const RegisterModal = ({ closeModal }) => {
   const firebase = useFirebase();
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [secondName, setSecondName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
   const [country, setCountry] = useState("");
@@ -50,7 +50,7 @@ const RegisterModal = ({ closeModal }) => {
         firebase.user(authUser.user.uid).set({
           username,
           firstName,
-          secondName,
+          lastName,
           email,
           age,
           country,
@@ -64,7 +64,7 @@ const RegisterModal = ({ closeModal }) => {
   const isInvalid =
     username === "" ||
     firstName === "" ||
-    secondName === "" ||
+    lastName === "" ||
     email === "" ||
     age === "" ||
     country === "" ||
@@ -85,9 +85,9 @@ const RegisterModal = ({ closeModal }) => {
         onChange={(e) => setFirstName(e.target.value)}
       />
       <FormInput
-        label="Second name"
-        value={secondName}
-        onChange={(e) => setSecondName(e.target.value)}
+        label="Last name"
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
       />
       <FormInput
         label="Email"
