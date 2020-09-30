@@ -15,7 +15,7 @@ import Alert from "../Alert";
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
-    width: 600,
+    width: "40%",
     backgroundColor: "#1D3557",
     color: "white",
     boxShadow: theme.shadows[5],
@@ -77,7 +77,7 @@ const LoginModal = ({ closeModal }) => {
     <Paper className={classes.paper}>
       <Typography variant="h4">Login</Typography>
       <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="h6" align="left">
+        <Typography variant="body1" align="left">
           Email
         </Typography>
         <Input
@@ -88,7 +88,7 @@ const LoginModal = ({ closeModal }) => {
         />
       </FormControl>
       <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="h6" align="left">
+        <Typography variant="body1" align="left">
           Password
         </Typography>
         <Input
