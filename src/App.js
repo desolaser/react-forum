@@ -18,6 +18,7 @@ const theme = createMuiTheme({
     primaryDarkColor: "#0E1A2B",
     secondaryLightColor: "#E63946",
     secondaryDarkColor: "#A52932",
+    disabledColor: "#E2E2E2",
   },
 });
 

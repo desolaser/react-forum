@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     margin: "30px 15px",
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
   },
   avatar: {
     width: "100%",
@@ -27,7 +27,17 @@ const useStyles = makeStyles((theme) => ({
     padding: "20px 0",
   },
   button: {
-    background: theme.palette.primaryColor,
+    background: theme.palette.primaryLightColor,
+    color: "white",
+    marginTop: "20px",
+    padding: "5px 10px",
+    "&:hover": {
+      background: theme.palette.primaryDarkColor,
+    },
+  },
+  disabled: {
+    background: theme.palette.disabledColor,
+    marginTop: "20px",
     padding: "5px 10px",
   },
 }));
@@ -43,7 +53,7 @@ const ProfileDisplay = ({
   return (
     <Paper className={classes.root}>
       <Grid container spacing={4}>
-        <Grid item>
+        <Grid item xs={4}>
           <Avatar className={classes.avatar}>
             <DraftsIcon className={classes.image} />
           </Avatar>
@@ -54,7 +64,8 @@ const ProfileDisplay = ({
           <Typography variant="h6">Age: {auth.age}</Typography>
           <Typography variant="h6">Country: {auth.country}</Typography>
         </Grid>
-        <Grid item>
+        <Grid item xs={8}>
+          <Typography variant="h4">My profile</Typography>
           <FormInput
             label="Username"
             name="username"
@@ -62,25 +73,37 @@ const ProfileDisplay = ({
             onChange={handleChange}
           />
           <FormInput
-            label="Username"
-            name="username"
+            label="First Name"
+            name="firstName"
             value={data.firstName}
             onChange={handleChange}
           />
           <FormInput
-            label="Username"
-            name="username"
+            label="Last Name"
+            name="lastName"
             value={data.lastName}
             onChange={handleChange}
           />
           <FormInput
-            label="Username"
-            name="username"
+            label="Email"
+            name="email"
             value={data.email}
             onChange={handleChange}
           />
+          <FormInput
+            label="Age"
+            name="age"
+            value={data.age}
+            onChange={handleChange}
+          />
+          <FormInput
+            label="Country"
+            name="country"
+            value={data.country}
+            onChange={handleChange}
+          />
           <Button
-            className={classes.button}
+            className={isInvalid ? classes.disabled : classes.button}
             onClick={handleSubmit}
             disabled={isInvalid}
           >
