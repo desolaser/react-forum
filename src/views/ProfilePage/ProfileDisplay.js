@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import { makeStyles } from "@material-ui/styles";
 import FormInput from "../../components/FormInput";
+import Alert from "../../components/Alert";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 const ProfileDisplay = ({
   auth,
   data,
+  error,
   isInvalid,
   handleChange,
   handleSubmit,
@@ -109,6 +111,7 @@ const ProfileDisplay = ({
           >
             Edit user
           </Button>
+          {error && <Alert>{error.message}</Alert>}
         </Grid>
       </Grid>
     </Paper>
