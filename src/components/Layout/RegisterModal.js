@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import FormControl from "@material-ui/core/FormControl";
-import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/styles";
 
 import { useFirebase } from "../../modules/firebase";
+import FormInput from "../FormInput";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -20,14 +19,6 @@ const useStyles = makeStyles((theme) => ({
     top: "50%",
     left: "50%",
     transform: `translate(-50%, -50%)`,
-  },
-  formControl: {
-    marginTop: "10px",
-  },
-  textField: {
-    background: "white",
-    borderRadius: "10px",
-    padding: "5px 10px",
   },
   button: {
     background: "#E63946",
@@ -62,7 +53,7 @@ const RegisterModal = ({ closeModal }) => {
           secondName,
           email,
           age,
-          country
+          country,
         });
         alert("You have been registered successfully, try to log in");
         closeModal();
@@ -83,88 +74,48 @@ const RegisterModal = ({ closeModal }) => {
   return (
     <Paper className={classes.paper}>
       <Typography variant="h4">Register</Typography>
-      <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="body1" align="left">
-          Username
-        </Typography>
-        <Input
-          className={classes.textField}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </FormControl>
-      <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="body1" align="left">
-          First name
-        </Typography>
-        <Input
-          className={classes.textField}
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-      </FormControl>
-      <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="body1" align="left">
-          Second name
-        </Typography>
-        <Input
-          className={classes.textField}
-          value={secondName}
-          onChange={(e) => setSecondName(e.target.value)}
-        />
-      </FormControl>
-      <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="body1" align="left">
-          Email
-        </Typography>
-        <Input
-          className={classes.textField}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </FormControl>
-      <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="body1" align="left">
-          Age
-        </Typography>
-        <Input
-          className={classes.textField}
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
-      </FormControl>
-      <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="body1" align="left">
-          Country
-        </Typography>
-        <Input
-          className={classes.textField}
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-        />
-      </FormControl>
-      <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="body1" align="left">
-          Password
-        </Typography>
-        <Input
-          className={classes.textField}
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </FormControl>
-      <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="body1" align="left">
-          Repeat Password
-        </Typography>
-        <Input
-          className={classes.textField}
-          type="password"
-          value={repeatPassword}
-          onChange={(e) => setRepeatPassword(e.target.value)}
-        />
-      </FormControl>
+      <FormInput
+        label="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <FormInput
+        label="First name"
+        value={firstName}
+        onChange={(e) => setFirstName(e.target.value)}
+      />
+      <FormInput
+        label="Second name"
+        value={secondName}
+        onChange={(e) => setSecondName(e.target.value)}
+      />
+      <FormInput
+        label="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <FormInput
+        label="Age"
+        value={age}
+        onChange={(e) => setAge(e.target.value)}
+      />
+      <FormInput
+        label="Country"
+        value={country}
+        onChange={(e) => setCountry(e.target.value)}
+      />
+      <FormInput
+        label="Password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <FormInput
+        label="Repeat password"
+        type="password"
+        value={repeatPassword}
+        onChange={(e) => setRepeatPassword(e.target.value)}
+      />
       <Button
         className={classes.button}
         onClick={handleSubmit}
