@@ -12,21 +12,21 @@ import { useFirebase } from "../../modules/firebase";
 import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    background: "#457B9D",
+    background: theme.palette.primaryLightColor,
   },
   toolbarButtons: {
     marginLeft: "auto",
   },
   button: {
-    background: "#1D3557",
+    background: theme.palette.primaryDarkColor,
     marginLeft: "10px",
     "&:hover": {
-      background: "#0E1A2B",
+      background: theme.palette.primaryHoverColor,
     },
   },
-});
+}));
 
 const NavBar = () => {
   const classes = useStyles();

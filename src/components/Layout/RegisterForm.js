@@ -19,11 +19,11 @@ const useStyles = makeStyles((theme) => ({
     transform: `translate(-50%, -50%)`,
   },
   button: {
-    background: "#E63946",
+    background: theme.palette.secondaryLightColor,
     color: "white",
     marginTop: "20px",
     "&:hover": {
-      background: "#A52932",
+      background: theme.palette.secondaryDarkColor,
     },
   },
 }));
