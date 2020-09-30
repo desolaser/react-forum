@@ -47,14 +47,22 @@ const LoginModal = ({ closeModal }) => {
     firebase
       .doSignInWithEmailAndPassword(email, password)
       .then((authUser) => {
-        dispatch(
-          login({
-            username: authUser.user.username,
-            email: authUser.user.email,
-            password: authUser.user.password,
-            language: authUser.user.language,
-          })
-        );
+        const id = authUser.user.uid;
+        firebase
+          .user(id)
+          .once("value")
+          .then((snapshot) => {
+            dispatch(
+              login({
+                username: snapshot.child("username").val(),
+                firstName: snapshot.child("firstName").val(),
+                lastName: snapshot.child("lastName").val(),
+                email: authUser.user.email,
+                age: snapshot.child("age").val(),
+                country: snapshot.child("country").val(),
+              })
+            );
+          });
         history.push("/");
         closeModal();
         alert("You are logged in now");
