@@ -55,6 +55,7 @@ const NavBar = () => {
   const handleSignOut = () => {
     firebase.doSignOut();
     dispatch(logout());
+    alert("You logged out");
   };
 
   const authExists =
