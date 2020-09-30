@@ -58,6 +58,13 @@ const NavBar = () => {
     alert("You logged out");
   };
 
+  const LoginContent = React.forwardRef((props, ref) => (
+    <LoginModal {...props} ref={ref} />
+  ));
+  const RegisterContent = React.forwardRef((props, ref) => (
+    <RegisterModal {...props} ref={ref} />
+  ));
+
   const authExists =
     Object.keys(auth).length !== 0 && auth.constructor === Object;
 
@@ -115,7 +122,7 @@ const NavBar = () => {
         aria-labelledby="sign-in-modal"
         aria-describedby="sign-in-modal-description"
       >
-        <RegisterModal closeModal={handleRegisterClose} />
+        <RegisterContent closeModal={handleRegisterClose} />
       </Modal>
       <Modal
         open={loginOpen}
@@ -123,7 +130,7 @@ const NavBar = () => {
         aria-labelledby="sign-up-modal"
         aria-describedby="sign-up-modal-description"
       >
-        <LoginModal closeModal={handleLoginClose} />
+        <LoginContent closeModal={handleLoginClose} />
       </Modal>
     </AppBar>
   );
