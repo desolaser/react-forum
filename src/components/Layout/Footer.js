@@ -7,14 +7,14 @@ import Divider from "@material-ui/core/Divider";
 import MemoryIcon from "@material-ui/icons/Memory";
 import { Avatar } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    background: "#1D3557",
+    background: theme.palette.primaryLightColor,
     color: "white",
     padding: 20,
   },
   icons: {
-    background: "#E63946",
+    background: theme.palette.secondaryLightColor,
   },
   logo: {
     display: "inline-block",
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
   footerIcons: {
     padding: 40,
   },
-});
+}));
 
 const Footer = () => {
   const classes = useStyles();
