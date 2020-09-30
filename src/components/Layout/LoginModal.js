@@ -23,13 +23,13 @@ const LoginModal = ({ closeModal }) => {
     firebase
       .doSignInWithEmailAndPassword(data.email, data.password)
       .then((authUser) => {
-        const id = authUser.user.uid;
         firebase
-          .user(id)
+          .user(authUser.user.uid)
           .once("value")
           .then((snapshot) => {
             dispatch(
               login({
+                uid: authUser.user.uid,
                 username: snapshot.child("username").val(),
                 firstName: snapshot.child("firstName").val(),
                 lastName: snapshot.child("lastName").val(),
