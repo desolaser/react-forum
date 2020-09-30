@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../../redux/actions";
 import { useFirebase } from "../../modules/firebase";
 import Alert from "../Alert";
+import FormInput from "../FormInput";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -76,29 +77,17 @@ const LoginModal = ({ closeModal }) => {
   return (
     <Paper className={classes.paper}>
       <Typography variant="h4">Login</Typography>
-      <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="body1" align="left">
-          Email
-        </Typography>
-        <Input
-          className={classes.textField}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          id="name"
-        />
-      </FormControl>
-      <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="body1" align="left">
-          Password
-        </Typography>
-        <Input
-          className={classes.textField}
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          id="password"
-        />
-      </FormControl>
+      <FormInput
+        label="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <FormInput
+        label="Password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
       <Button
         onClick={handleSubmit}
         className={classes.button}
