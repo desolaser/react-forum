@@ -14,16 +14,16 @@ import LoginModal from "./LoginModal";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: theme.palette.primaryLightColor,
+    background: theme.palette.navbarColor,
   },
   toolbarButtons: {
     marginLeft: "auto",
   },
   button: {
-    background: theme.palette.primaryDarkColor,
+    background: theme.palette.primaryLightColor,
     marginLeft: "10px",
     "&:hover": {
-      background: theme.palette.primaryHoverColor,
+      background: theme.palette.primaryDarkColor,
     },
   },
 }));
