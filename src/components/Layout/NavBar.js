@@ -65,6 +65,11 @@ const NavBar = () => {
     <AppBar position="static" className={classes.root}>
       <Toolbar className={classes.toolbar}>
         <div className={classes.toolbarButtons}>
+          <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+            <Button color="inherit" className={classes.button}>
+              Home
+            </Button>
+          </Link>
           {authExists && (
             <>
               <Link
