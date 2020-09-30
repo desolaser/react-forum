@@ -77,12 +77,14 @@ const RegisterForm = ({
       />
       <FormInput
         label="Password"
+        type="password"
         name="password"
         value={data.password}
         onChange={handleChange}
       />
       <FormInput
         label="Repeat password"
+        type="password"
         name="repeatPassword"
         value={data.repeatPassword}
         onChange={handleChange}
