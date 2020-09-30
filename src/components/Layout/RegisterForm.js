@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
     width: "40%",
-    backgroundColor: "#1D3557",
+    backgroundColor: theme.palette.primaryLightColor,
     color: "white",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),

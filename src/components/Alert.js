@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/styles";
 import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme) => ({
-  backgroundColor: "tomato",
+  backgroundColor: theme.palette.primaryLightColor,
   padding: 10,
   marginTop: 10,
   color: "white",
