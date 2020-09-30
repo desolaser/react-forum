@@ -1,0 +1,40 @@
+Database Design:
+
+User: 
+    - username
+    - first_name
+    - second_name
+    - age
+    - email
+    - country
+    - role: default(novice)
+    - categories
+    - topics
+    - posts
+    - comments
+    - created_at
+
+Category: 
+    - name
+    - topics
+    - user
+    - created_at
+
+Topic:
+    - name
+    - posts
+    - user
+    - created_at
+
+Post: 
+    - number
+    - text
+    - comments
+    - user
+    - created_at
+
+Comment:
+    - number
+    - text
+    - user
+    - created_at
