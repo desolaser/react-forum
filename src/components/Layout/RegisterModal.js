@@ -11,7 +11,7 @@ import { useFirebase } from "../../modules/firebase";
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
-    width: 600,
+    width: "40%",
     backgroundColor: "#1D3557",
     color: "white",
     boxShadow: theme.shadows[5],
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     transform: `translate(-50%, -50%)`,
   },
   formControl: {
-    marginTop: "20px",
+    marginTop: "10px",
   },
   textField: {
     background: "white",
@@ -43,10 +43,13 @@ const RegisterModal = () => {
   const classes = useStyles();
   const firebase = useFirebase();
   const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [secondName, setSecondName] = useState("");
   const [email, setEmail] = useState("");
+  const [age, setAge] = useState("");
+  const [country, setCountry] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const [language, setLanguage] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = ({ closeModal }) => {
@@ -55,8 +58,11 @@ const RegisterModal = () => {
       .then((authUser) => {
         firebase.user(authUser.user.uid).set({
           username,
+          firstName,
+          secondName,
           email,
-          language,
+          age,
+          country
         });
         alert("You have been registered successfully, try to log in");
         closeModal();
@@ -66,15 +72,19 @@ const RegisterModal = () => {
 
   const isInvalid =
     username === "" ||
+    firstName === "" ||
+    secondName === "" ||
+    email === "" ||
+    age === "" ||
+    country === "" ||
     password === "" ||
-    password !== repeatPassword ||
-    language === "";
+    password !== repeatPassword;
 
   return (
     <Paper className={classes.paper}>
       <Typography variant="h4">Register</Typography>
       <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="h6" align="left">
+        <Typography variant="body1" align="left">
           Username
         </Typography>
         <Input
@@ -84,7 +94,27 @@ const RegisterModal = () => {
         />
       </FormControl>
       <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="h6" align="left">
+        <Typography variant="body1" align="left">
+          First name
+        </Typography>
+        <Input
+          className={classes.textField}
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+      </FormControl>
+      <FormControl fullWidth className={classes.formControl}>
+        <Typography variant="body1" align="left">
+          Second name
+        </Typography>
+        <Input
+          className={classes.textField}
+          value={secondName}
+          onChange={(e) => setSecondName(e.target.value)}
+        />
+      </FormControl>
+      <FormControl fullWidth className={classes.formControl}>
+        <Typography variant="body1" align="left">
           Email
         </Typography>
         <Input
@@ -94,7 +124,27 @@ const RegisterModal = () => {
         />
       </FormControl>
       <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="h6" align="left">
+        <Typography variant="body1" align="left">
+          Age
+        </Typography>
+        <Input
+          className={classes.textField}
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        />
+      </FormControl>
+      <FormControl fullWidth className={classes.formControl}>
+        <Typography variant="body1" align="left">
+          Country
+        </Typography>
+        <Input
+          className={classes.textField}
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+        />
+      </FormControl>
+      <FormControl fullWidth className={classes.formControl}>
+        <Typography variant="body1" align="left">
           Password
         </Typography>
         <Input
@@ -105,7 +155,7 @@ const RegisterModal = () => {
         />
       </FormControl>
       <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="h6" align="left">
+        <Typography variant="body1" align="left">
           Repeat Password
         </Typography>
         <Input
@@ -113,16 +163,6 @@ const RegisterModal = () => {
           type="password"
           value={repeatPassword}
           onChange={(e) => setRepeatPassword(e.target.value)}
-        />
-      </FormControl>
-      <FormControl fullWidth className={classes.formControl}>
-        <Typography variant="h6" align="left">
-          First language
-        </Typography>
-        <Input
-          className={classes.textField}
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
         />
       </FormControl>
       <Button
