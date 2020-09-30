@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Typography from "@material-ui/core/Typography";
 import FormControl from "@material-ui/core/FormControl";
 import Input from "@material-ui/core/Input";
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FormInput = ({ label, value, onChange, type }) => {
+const FormInput = ({ label, name, value, onChange, type }) => {
   const classes = useStyles();
   return (
     <FormControl fullWidth className={classes.formControl}>
@@ -23,6 +23,7 @@ const FormInput = ({ label, value, onChange, type }) => {
         {label}
       </Typography>
       <Input
+        name={name}
         type={type ? type : ""}
         className={classes.textField}
         value={value}
