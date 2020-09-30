@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import FormControl from "@material-ui/core/FormControl";
-import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/styles";
 import { useDispatch } from "react-redux";
@@ -25,14 +23,6 @@ const useStyles = makeStyles((theme) => ({
     top: "50%",
     left: "50%",
     transform: `translate(-50%, -50%)`,
-  },
-  formControl: {
-    marginTop: "20px",
-  },
-  textField: {
-    background: "white",
-    borderRadius: "10px",
-    padding: "5px 10px",
   },
   button: {
     background: "#E63946",
