@@ -6,10 +6,19 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import MainPage from "./views/MainPage";
 import PostsPage from "./views/PostsPage";
 import SinglePostPage from "./views/SinglePostPage";
+import ProfilePage from "./views/ProfilePage";
 
 const theme = createMuiTheme({
   typography: {
     fontFamily: ["Montserrat", "Arial", "sans-serif"].join(","),
+  },
+  palette: {
+    navbarColor: "#457B9D",
+    primaryLightColor: "#1D3557",
+    primaryDarkColor: "#0E1A2B",
+    secondaryLightColor: "#E63946",
+    secondaryDarkColor: "#A52932",
+    disabledColor: "#E2E2E2",
   },
 });
 
@@ -22,6 +31,7 @@ function App() {
             <Route path="/" exact component={MainPage} />
             <Route path="/posts" exact component={PostsPage} />
             <Route path="/single-post" exact component={SinglePostPage} />
+            <Route path="/profile" exact component={ProfilePage} />
           </Switch>
         </Layout>
       </Router>
