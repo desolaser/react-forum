@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RegisterModal = () => {
+const RegisterModal = ({ closeModal }) => {
   const classes = useStyles();
   const firebase = useFirebase();
   const [username, setUsername] = useState("");
@@ -52,7 +52,7 @@ const RegisterModal = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = ({ closeModal }) => {
+  const handleSubmit = () => {
     firebase
       .doCreateUserWithEmailAndPassword(email, password)
       .then((authUser) => {
