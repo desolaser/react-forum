@@ -1,13 +1,16 @@
 import React from "react";
+import Container from "@material-ui/core/Container";
 import Category from "./Category";
+import TitleBar from "./TitleBar";
 
 const MainPage = () => {
   return (
-    <div className="main-page">
+    <Container>
+      <TitleBar />
       <Category />
       <Category />
       <Category />
-    </div>
+    </Container>
   );
 };
 
