@@ -17,14 +17,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TitleBar = () => {
+const TitleBar = ({ title, buttonText, onButtonClick }) => {
   const classes = useStyles();
   return (
     <AppBar position="static" className={classes.root}>
       <Toolbar>
-        <Typography variant="h5">Categories</Typography>
-        <Button color="primary" className={classes.button}>
-          Add Category
+        <Typography variant="h5">{title}</Typography>
+        <Button onClick={onButtonClick} className={classes.button}>
+          {buttonText}
         </Button>
       </Toolbar>
     </AppBar>
