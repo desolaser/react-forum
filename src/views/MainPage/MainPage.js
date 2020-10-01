@@ -4,13 +4,13 @@ import Category from "./Category";
 import TitleBar from "../../components/TitleBar";
 import { useSelector } from "react-redux";
 
-const MainPage = () => {
+const MainPage = ({ history }) => {
   const auth = useSelector((store) => store.auth);
   const authExists =
     Object.keys(auth).length !== 0 && auth.constructor === Object;
 
   const onButtonClick = () => {
-    console.log("asd");
+    history.push("/add-category");
   };
 
   return (
