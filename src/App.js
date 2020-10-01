@@ -9,6 +9,7 @@ import MainPage from "./views/MainPage";
 import PostsPage from "./views/PostsPage";
 import SinglePostPage from "./views/SinglePostPage";
 import ProfilePage from "./views/ProfilePage";
+import AddCategoryPage from "./views/AddCategoryPage";
 
 const theme = createMuiTheme({
   typography: {
@@ -34,6 +35,11 @@ function App() {
             <Route path="/posts" exact component={PostsPage} />
             <Route path="/single-post" exact component={SinglePostPage} />
             <PrivateRoute path="/profile" exact component={ProfilePage} />
+            <PrivateRoute
+              path="/add-category"
+              exact
+              component={AddCategoryPage}
+            />
           </Switch>
         </Layout>
       </Router>
