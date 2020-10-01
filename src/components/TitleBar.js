@@ -8,12 +8,7 @@ import { makeStyles } from "@material-ui/styles";
 const useStyles = makeStyles((theme) => ({
   root: { background: "#FFFFFF", color: "black", marginTop: 30 },
   button: {
-    background: theme.palette.primaryLightColor,
     marginLeft: "auto",
-    color: "white",
-    "&:hover": {
-      background: theme.palette.primaryDarkColor,
-    },
   },
 }));
 
@@ -23,7 +18,12 @@ const TitleBar = ({ title, buttonText, onButtonClick }) => {
     <AppBar position="static" className={classes.root}>
       <Toolbar>
         <Typography variant="h5">{title}</Typography>
-        <Button onClick={onButtonClick} className={classes.button}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={onButtonClick}
+          className={classes.button}
+        >
           {buttonText}
         </Button>
       </Toolbar>

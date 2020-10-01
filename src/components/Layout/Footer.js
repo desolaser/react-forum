@@ -9,12 +9,12 @@ import { Avatar } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: theme.palette.primaryLightColor,
+    background: theme.palette.primary.dark,
     color: "white",
     padding: 20,
   },
   icons: {
-    background: theme.palette.secondaryLightColor,
+    background: theme.palette.secondary.main,
   },
   logo: {
     display: "inline-block",

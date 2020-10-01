@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
     width: "40%",
-    backgroundColor: theme.palette.primaryLightColor,
+    backgroundColor: theme.palette.primary.main,
     color: "white",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
@@ -19,12 +19,8 @@ const useStyles = makeStyles((theme) => ({
     transform: `translate(-50%, -50%)`,
   },
   button: {
-    background: theme.palette.secondaryLightColor,
-    color: "white",
     marginTop: "20px",
-    "&:hover": {
-      background: theme.palette.secondaryDarkColor,
-    },
+    color: "white",
   },
 }));
 
@@ -90,6 +86,8 @@ const RegisterForm = ({
         onChange={handleChange}
       />
       <Button
+        color="secondary"
+        variant="contained"
         className={classes.button}
         onClick={handleSubmit}
         disabled={isInvalid}

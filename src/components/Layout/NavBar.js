@@ -14,17 +14,13 @@ import LoginModal from "./LoginModal";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: theme.palette.navbarColor,
+    background: theme.palette.primary.light,
   },
   toolbarButtons: {
     marginLeft: "auto",
   },
   button: {
-    background: theme.palette.primaryLightColor,
     marginLeft: "10px",
-    "&:hover": {
-      background: theme.palette.primaryDarkColor,
-    },
   },
 }));
 
@@ -73,7 +69,11 @@ const NavBar = () => {
       <Toolbar className={classes.toolbar}>
         <div className={classes.toolbarButtons}>
           <Link to="/" style={{ color: "white", textDecoration: "none" }}>
-            <Button color="inherit" className={classes.button}>
+            <Button
+              color="primary"
+              variant="contained"
+              className={classes.button}
+            >
               Home
             </Button>
           </Link>
@@ -83,12 +83,17 @@ const NavBar = () => {
                 to="/profile"
                 style={{ color: "white", textDecoration: "none" }}
               >
-                <Button color="inherit" className={classes.button}>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  className={classes.button}
+                >
                   Profile
                 </Button>
               </Link>
               <Button
-                color="inherit"
+                color="primary"
+                variant="contained"
                 className={classes.button}
                 onClick={handleSignOut}
               >
@@ -99,14 +104,16 @@ const NavBar = () => {
           {!authExists && (
             <>
               <Button
-                color="inherit"
+                color="primary"
+                variant="contained"
                 className={classes.button}
                 onClick={handleRegisterOpen}
               >
                 Sign up
               </Button>
               <Button
-                color="inherit"
+                color="primary"
+                variant="contained"
                 className={classes.button}
                 onClick={handleLoginOpen}
               >

@@ -13,11 +13,6 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginTop: theme.spacing(4),
-    background: theme.palette.primaryLightColor,
-    color: "white",
-    "&:hover": {
-      background: theme.palette.primaryDarkColor,
-    },
   },
 }));
 
@@ -39,7 +34,12 @@ const AddCategoryForm = ({ data, handleChange, handleSubmit }) => {
           value={data.description}
           onChange={handleChange}
         />
-        <Button className={classes.button} onClick={handleSubmit}>
+        <Button
+          color="primary"
+          variant="contained"
+          className={classes.button}
+          onClick={handleSubmit}
+        >
           Submit
         </Button>
       </Paper>

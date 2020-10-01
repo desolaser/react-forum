@@ -16,12 +16,14 @@ User:
 
 Category: 
     - name
+    - description
     - topics
     - user
     - created_at
 
 Topic:
     - name
+    - description
     - posts
     - user
     - created_at

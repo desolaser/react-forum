@@ -7,12 +7,12 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    background: "#E63946",
+    background: theme.palette.secondary.main,
     minWidth: 0,
     margin: "0 5px",
     color: "white",
     "&:hover": {
-      background: "#A52932",
+      background: theme.palette.secondary.dark,
     },
   },
 }));
