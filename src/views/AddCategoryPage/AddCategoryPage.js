@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { useFirebase } from "../../modules/firebase";
 import AddCategoryForm from "./AddCategoryForm";
 
 const AddCategoryPage = ({ history }) => {
   const firebase = useFirebase();
+  const auth = useSelector((store) => store.auth);
   const [data, setData] = useState({
     name: "",
     description: "",
@@ -17,6 +19,7 @@ const AddCategoryPage = ({ history }) => {
     firebase.categories().push({
       name: data.name,
       description: data.description,
+      user: auth,
     });
     alert("Category added");
     history.push("/");
