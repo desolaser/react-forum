@@ -40,6 +40,26 @@ class Firebase {
   user = (uid) => this.db.ref(`/users/${uid}`);
 
   users = () => this.db.ref(`/users`);
+
+  // *** Category API ***
+  category = (uid) => this.db.ref(`/categories/${uid}`);
+
+  categories = () => this.db.ref(`/categories`);
+
+  // *** Topic API ***
+  topic = (uid) => this.db.ref(`/topics/${uid}`);
+
+  topics = () => this.db.ref(`/topics`);
+
+  // *** Post API ***
+  post = (uid) => this.db.ref(`/posts/${uid}`);
+
+  posts = () => this.db.ref(`/posts`);
+
+  // *** Comments API ***
+  comment = (uid) => this.db.ref(`/comments/${uid}`);
+
+  comments = () => this.db.ref(`/comments`);
 }
 
 export default Firebase;
