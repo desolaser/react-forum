@@ -10,7 +10,7 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    margin: "30px 15px",
+    margin: "30px 0",
   },
   paper: {
     padding: theme.spacing(2),
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   category: {
     background: "#A8DADC",
-    padding: 10,
+    padding: theme.spacing(2),
   },
   image: {
     width: 50,
