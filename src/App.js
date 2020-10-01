@@ -16,11 +16,18 @@ const theme = createMuiTheme({
     fontFamily: ["Montserrat", "Arial", "sans-serif"].join(","),
   },
   palette: {
-    navbarColor: "#457B9D",
-    primaryLightColor: "#1D3557",
-    primaryDarkColor: "#0E1A2B",
-    secondaryLightColor: "#E63946",
-    secondaryDarkColor: "#A52932",
+    primary: {
+      light: "#757ce8",
+      main: "#3f50b5",
+      dark: "#002884",
+      contrastText: "#fff",
+    },
+    secondary: {
+      light: "#ff7961",
+      main: "#f44336",
+      dark: "#ba000d",
+      contrastText: "#000",
+    },
     disabledColor: "#E2E2E2",
   },
 });
