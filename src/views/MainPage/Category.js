@@ -36,10 +36,10 @@ const Category = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      <Paper className={classes.category}>
+        <Typography variant="subtitle1">Javascript</Typography>
+      </Paper>
       <Link to="/posts">
-        <Paper className={classes.category}>
-          <Typography variant="subtitle1">Javascript</Typography>
-        </Paper>
         <Paper className={classes.paper}>
           <Grid container spacing={2}>
             <Grid item>
@@ -69,6 +69,8 @@ const Category = () => {
             </Grid>
           </Grid>
         </Paper>
+      </Link>
+      <Link to="/posts">
         <Paper className={classes.paper}>
           <Grid container spacing={2}>
             <Grid item>
