@@ -1,7 +1,9 @@
 import React from "react";
-import Layout from "./components/Layout";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+
+import Layout from "./components/Layout";
+import PrivateRoute from "./components/PrivateRoute";
 
 import MainPage from "./views/MainPage";
 import PostsPage from "./views/PostsPage";
@@ -31,7 +33,7 @@ function App() {
             <Route path="/" exact component={MainPage} />
             <Route path="/posts" exact component={PostsPage} />
             <Route path="/single-post" exact component={SinglePostPage} />
-            <Route path="/profile" exact component={ProfilePage} />
+            <PrivateRoute path="/profile" exact component={ProfilePage} />
           </Switch>
         </Layout>
       </Router>
