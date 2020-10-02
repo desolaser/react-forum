@@ -46,6 +46,36 @@ class Firebase {
   category_topics = (id) => this.db.ref(`/categories/${id}/topics`);
 
   categories = () => this.db.ref(`/categories`);
+  categoriesWithTopics = async (callback) => {
+    this.categories()
+      .once("value")
+      .then(async (snapshot) => {
+        let dataCategories = snapshot.val();
+        let toWait = [];
+        Object.keys(dataCategories).forEach((category_id) => {
+          let topics = [];
+          Object.keys(dataCategories[category_id].topics).forEach((topic) => {
+            const method = this.topic(topic)
+              .once("value")
+              .then((snapshot) => {
+                const value = snapshot.val();
+                const topic = {
+                  id: snapshot.key,
+                  name: value.name,
+                  description: value.description,
+                  user: value.user,
+                };
+                topics.push(topic);
+              });
+            toWait.push(method);
+          });
+          dataCategories[category_id].topics = topics;
+        });
+        await Promise.all(toWait);
+        return dataCategories;
+      })
+      .then(callback);
+  };
 
   // *** Topic API ***
   topic = (id) => this.db.ref(`/topics/${id}`);
