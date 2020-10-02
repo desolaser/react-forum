@@ -35,7 +35,7 @@ const PostsPage = ({ match, history }) => {
   });
 
   const addPost = () => {
-    history.push("/add-post");
+    history.push("/add-post/" + topic.id);
   };
 
   return (

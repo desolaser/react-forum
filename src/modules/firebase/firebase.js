@@ -87,6 +87,7 @@ class Firebase {
       .once("value")
       .then(async (snapshot) => {
         const topic = snapshot.val();
+        topic.id = snapshot.key;
         if (topic.posts === undefined) return topic;
         const toWait = [];
         const posts = [];

@@ -11,6 +11,7 @@ import SinglePostPage from "./views/SinglePostPage";
 import ProfilePage from "./views/ProfilePage";
 import AddCategoryPage from "./views/AddCategoryPage";
 import AddTopicPage from "./views/AddTopicPage";
+import AddPostPage from "./views/AddPostPage";
 
 const theme = createMuiTheme({
   typography: {
@@ -53,6 +54,7 @@ function App() {
               exact
               component={AddTopicPage}
             />
+            <PrivateRoute path="/add-post/:id" exact component={AddPostPage} />
           </Switch>
         </Layout>
       </Router>
