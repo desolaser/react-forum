@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Container from "@material-ui/core/Container";
-import Category from "./Category";
-import TitleBar from "../../components/TitleBar";
 import { useFirebase } from "../../modules/firebase";
 import { useSelector } from "react-redux";
+
+import Category from "./Category";
+import TitleBar from "../../components/TitleBar";
+import CardNote from "../../components/CardNote";
 
 const MainPage = ({ history }) => {
   const firebase = useFirebase();
@@ -37,16 +39,23 @@ const MainPage = ({ history }) => {
 
   return (
     <Container>
-      {authExists && (
-        <TitleBar
-          title="Category"
-          buttonText="Add category"
-          onButtonClick={onButtonClick}
+      <TitleBar
+        title="Categories"
+        buttonText="Add category"
+        onButtonClick={authExists && onButtonClick}
+      />
+      {categories === [] ? (
+        categories.map((category) => (
+          <Category key={category.id} category={category} />
+        ))
+      ) : (
+        <CardNote
+          title="Error"
+          text="There are not categories on this forum, adding a category is recommended. If you can't do so talk with an admin"
+          onClick={authExists && onButtonClick}
+          buttonText="Add Category"
         />
       )}
-      {categories.map((category) => (
-        <Category key={category.id} category={category} />
-      ))}
     </Container>
   );
 };
