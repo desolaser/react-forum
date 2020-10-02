@@ -42,22 +42,23 @@ class Firebase {
   users = () => this.db.ref(`/users`);
 
   // *** Category API ***
-  category = (uid) => this.db.ref(`/categories/${uid}`);
+  category = (id) => this.db.ref(`/categories/${id}`);
+  category_topics = (id) => this.db.ref(`/categories/${id}/topics`);
 
   categories = () => this.db.ref(`/categories`);
 
   // *** Topic API ***
-  topic = (uid) => this.db.ref(`/topics/${uid}`);
+  topic = (id) => this.db.ref(`/topics/${id}`);
 
   topics = () => this.db.ref(`/topics`);
 
   // *** Post API ***
-  post = (uid) => this.db.ref(`/posts/${uid}`);
+  post = (id) => this.db.ref(`/posts/${id}`);
 
   posts = () => this.db.ref(`/posts`);
 
   // *** Comments API ***
-  comment = (uid) => this.db.ref(`/comments/${uid}`);
+  comment = (id) => this.db.ref(`/comments/${id}`);
 
   comments = () => this.db.ref(`/comments`);
 }
