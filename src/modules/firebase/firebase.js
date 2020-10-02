@@ -54,6 +54,7 @@ class Firebase {
         let toWait = [];
         Object.keys(dataCategories).forEach((category_id) => {
           let topics = [];
+          dataCategories[category_id].id = category_id;
           if (dataCategories[category_id].topics !== undefined) {
             Object.keys(dataCategories[category_id].topics).forEach((topic) => {
               const method = this.topic(topic)
@@ -110,6 +111,7 @@ class Firebase {
   };
 
   topics = () => this.db.ref(`/topics`);
+  topicPosts = (id) => this.db.ref(`/topics/${id}/posts`);
 
   // *** Post API ***
   post = (id) => this.db.ref(`/posts/${id}`);
