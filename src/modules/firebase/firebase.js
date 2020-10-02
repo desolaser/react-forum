@@ -43,7 +43,7 @@ class Firebase {
 
   // *** Category API ***
   category = (id) => this.db.ref(`/categories/${id}`);
-  category_topics = (id) => this.db.ref(`/categories/${id}/topics`);
+  categoryTopics = (id) => this.db.ref(`/categories/${id}/topics`);
 
   categories = () => this.db.ref(`/categories`);
   categoriesWithTopics = async (callback) => {
