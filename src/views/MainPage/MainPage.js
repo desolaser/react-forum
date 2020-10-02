@@ -45,7 +45,7 @@ const MainPage = ({ history }) => {
         ))
       ) : (
         <CardNote
-          title="Error"
+          title="No categories"
           text="There are not categories on this forum, adding a category is recommended. If you can't do so talk with an admin"
           onClick={authExists && onButtonClick}
           buttonText="Add Category"
