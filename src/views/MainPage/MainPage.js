@@ -20,23 +20,43 @@ const MainPage = ({ history }) => {
   };
 
   useEffect(() => {
-    firebase
-      .categories()
-      .once("value")
-      .then((snapshot) => {
-        snapshot.forEach((item) => {
-          const value = item.val();
-          setCategories((prevCategories) => [
-            ...prevCategories,
-            {
-              id: item.key,
-              name: value.name,
-              description: value.description,
-            },
-          ]);
+    const getCategories = async () => {
+      firebase
+        .categories()
+        .once("value")
+        .then(async (snapshot) => {
+          let dataCategories = snapshot.val();
+          let toWait = [];
+          Object.keys(dataCategories).forEach((category_id) => {
+            let topics = [];
+            Object.keys(dataCategories[category_id].topics).forEach((topic) => {
+              const method = firebase
+                .topic(topic)
+                .once("value")
+                .then((snapshot) => {
+                  const value = snapshot.val();
+                  const topic = {
+                    id: snapshot.key,
+                    name: value.name,
+                    description: value.description,
+                    user: value.user,
+                  };
+                  topics.push(topic);
+                });
+              toWait.push(method);
+            });
+            dataCategories[category_id].topics = topics;
+          });
+          await Promise.all(toWait);
+          return dataCategories;
+        })
+        .then((dataCategories) => {
+          setCategories(dataCategories);
           setLoading(false);
         });
-      });
+    };
+
+    getCategories();
   }, []);
 
   return (
@@ -52,8 +72,8 @@ const MainPage = ({ history }) => {
           text="Data is loading, please wait a second"
         />
       ) : categories.length !== 0 ? (
-        categories.map((category) => (
-          <Category key={category.id} category={category} />
+        Object.keys(categories).map((cid) => (
+          <Category key={cid} category={categories[cid]} />
         ))
       ) : (
         <CardNote
