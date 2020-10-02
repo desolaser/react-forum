@@ -54,22 +54,24 @@ class Firebase {
         let toWait = [];
         Object.keys(dataCategories).forEach((category_id) => {
           let topics = [];
-          Object.keys(dataCategories[category_id].topics).forEach((topic) => {
-            const method = this.topic(topic)
-              .once("value")
-              .then((snapshot) => {
-                const value = snapshot.val();
-                const topic = {
-                  id: snapshot.key,
-                  name: value.name,
-                  description: value.description,
-                  user: value.user,
-                };
-                topics.push(topic);
-              });
-            toWait.push(method);
-          });
-          dataCategories[category_id].topics = topics;
+          if (dataCategories[category_id].topics !== undefined) {
+            Object.keys(dataCategories[category_id].topics).forEach((topic) => {
+              const method = this.topic(topic)
+                .once("value")
+                .then((snapshot) => {
+                  const value = snapshot.val();
+                  const topic = {
+                    id: snapshot.key,
+                    name: value.name,
+                    description: value.description,
+                    user: value.user,
+                  };
+                  topics.push(topic);
+                });
+              toWait.push(method);
+            });
+            dataCategories[category_id].topics = topics;
+          }
         });
         await Promise.all(toWait);
         return dataCategories;
