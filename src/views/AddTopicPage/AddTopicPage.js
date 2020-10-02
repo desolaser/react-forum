@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useFirebase } from "../../modules/firebase";
 import AddTopicForm from "./AddTopicForm";
 
-const AddTopicPage = ({ history }) => {
+const AddTopicPage = ({ history, match }) => {
   const firebase = useFirebase();
   const auth = useSelector((store) => store.auth);
   const [data, setData] = useState({
@@ -16,11 +16,27 @@ const AddTopicPage = ({ history }) => {
   };
 
   const handleSubmit = () => {
-    firebase.topics().push({
-      name: data.name,
-      description: data.description,
-      user: auth,
-    });
+    firebase
+      .topics()
+      .push({
+        name: data.name,
+        description: data.description,
+        user: auth,
+      })
+      .then(() => {
+        firebase
+          .topics()
+          .limitToLast(1)
+          .on("child_added", (childSnapshot) => {
+            const key = childSnapshot.key;
+            firebase.category_topics(match.params.id).set({
+              [key]: true,
+            });
+          });
+      })
+      .catch(function (error) {
+        console.error("Error adding topic: ", error);
+      });
     alert("Topic added");
     history.push("/");
   };
