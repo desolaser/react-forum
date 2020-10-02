@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 const Topic = ({ topic }) => {
   const classes = useStyles();
   return (
-    <Link to="/posts">
+    <Link to={`/posts/${topic.id}`}>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
           <Grid item>

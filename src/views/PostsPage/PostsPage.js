@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
+import Container from "@material-ui/core/Container";
 import FilterBar from "./FilterBar";
 import Post from "./Post";
 
@@ -10,10 +11,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PostsPage = () => {
+const PostsPage = ({ match }) => {
   const classes = useStyles();
+  console.log(match.params.id);
   return (
-    <div className={classes.root}>
+    <Container className={classes.root}>
       <FilterBar />
       <Post />
       <Post />
@@ -24,7 +26,7 @@ const PostsPage = () => {
       <Post />
       <Post />
       <Post />
-    </div>
+    </Container>
   );
 };
 

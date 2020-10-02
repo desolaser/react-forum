@@ -40,7 +40,7 @@ function App() {
         <Layout>
           <Switch>
             <Route path="/" exact component={MainPage} />
-            <Route path="/posts" exact component={PostsPage} />
+            <Route path="/posts/:id" exact component={PostsPage} />
             <Route path="/single-post" exact component={SinglePostPage} />
             <PrivateRoute path="/profile" exact component={ProfilePage} />
             <PrivateRoute
