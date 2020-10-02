@@ -21,7 +21,7 @@ const AddTopicPage = ({ history, match }) => {
       .push({
         name: data.name,
         description: data.description,
-        user: auth,
+        user: auth.uid,
       })
       .then(() => {
         firebase
