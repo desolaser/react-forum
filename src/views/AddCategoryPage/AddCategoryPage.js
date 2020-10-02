@@ -19,7 +19,7 @@ const AddCategoryPage = ({ history }) => {
     firebase.categories().push({
       name: data.name,
       description: data.description,
-      user: auth,
+      user: auth.uid,
     });
     alert("Category added");
     history.push("/");
