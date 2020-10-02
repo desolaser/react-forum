@@ -28,13 +28,9 @@ const useStyles = makeStyles((theme) => ({
     padding: "20px 0",
   },
   button: {
-    background: theme.palette.primaryLightColor,
     color: "white",
     marginTop: "20px",
     padding: "5px 10px",
-    "&:hover": {
-      background: theme.palette.primaryDarkColor,
-    },
   },
   disabled: {
     background: theme.palette.disabledColor,
@@ -105,6 +101,8 @@ const ProfileDisplay = ({
             onChange={handleChange}
           />
           <Button
+            color="primary"
+            variant="contained"
             className={isInvalid ? classes.disabled : classes.button}
             onClick={handleSubmit}
             disabled={isInvalid}
