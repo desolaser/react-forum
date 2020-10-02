@@ -18,14 +18,16 @@ const TitleBar = ({ title, buttonText, onButtonClick }) => {
     <AppBar position="static" className={classes.root}>
       <Toolbar>
         <Typography variant="h5">{title}</Typography>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={onButtonClick}
-          className={classes.button}
-        >
-          {buttonText}
-        </Button>
+        {onButtonClick && (
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={onButtonClick}
+            className={classes.button}
+          >
+            {buttonText}
+          </Button>
+        )}
       </Toolbar>
     </AppBar>
   );
