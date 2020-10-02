@@ -81,6 +81,33 @@ class Firebase {
 
   // *** Topic API ***
   topic = (id) => this.db.ref(`/topics/${id}`);
+  topicWithPosts = async (id, callback) => {
+    this.topic(id)
+      .once("value")
+      .then(async (snapshot) => {
+        const topic = snapshot.val();
+        if (topic.posts === undefined) return topic;
+        const toWait = [];
+        const posts = [];
+        Object.keys(topic.posts).forEach((post) => {
+          const method = this.post(post)
+            .once("value")
+            .then((snapshot) => {
+              const post = {
+                id: snapshot.key,
+                number: snapshot.val().number,
+                text: snapshot.val().text,
+              };
+              posts.push(post);
+            });
+          toWait.push(method);
+        });
+        topic.posts = posts;
+        await Promise.all(toWait);
+        return topic;
+      })
+      .then(callback);
+  };
 
   topics = () => this.db.ref(`/topics`);
 
