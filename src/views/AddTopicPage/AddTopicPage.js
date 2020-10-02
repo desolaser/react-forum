@@ -29,12 +29,8 @@ const AddTopicPage = ({ history, match }) => {
           .limitToLast(1)
           .on("child_added", (childSnapshot) => {
             const key = childSnapshot.key;
-            firebase.categoryTopics("value", (snapshot) => {
-              var previous_value = snapshot.val();
-              firebase.categoryTopics(match.params.id).set({
-                ...previous_value,
-                [key]: true,
-              });
+            firebase.categoryTopics(match.params.id).update({
+              [key]: true,
             });
           });
       })
