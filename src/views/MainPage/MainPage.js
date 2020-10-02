@@ -9,6 +9,7 @@ import CardNote from "../../components/CardNote";
 
 const MainPage = ({ history }) => {
   const firebase = useFirebase();
+  const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const auth = useSelector((store) => store.auth);
   const authExists =
@@ -33,6 +34,7 @@ const MainPage = ({ history }) => {
               description: value.description,
             },
           ]);
+          setLoading(false);
         });
       });
   }, []);
@@ -44,7 +46,12 @@ const MainPage = ({ history }) => {
         buttonText="Add category"
         onButtonClick={authExists && onButtonClick}
       />
-      {categories === [] ? (
+      {loading ? (
+        <CardNote
+          title="Loading"
+          text="Data is loading, please wait a second"
+        />
+      ) : categories.length !== 0 ? (
         categories.map((category) => (
           <Category key={category.id} category={category} />
         ))
