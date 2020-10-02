@@ -42,11 +42,15 @@ const Topic = ({ topic }) => {
             </Grid>
             <Grid item xs={2}>
               <Typography variant="subtitle1">Posts</Typography>
-              <Typography variant="body2">{topic.posts.length}</Typography>
+              <Typography variant="body2">
+                {topic.posts ? topic.posts.length : "0"}
+              </Typography>
             </Grid>
             <Grid item xs={2}>
               <Typography variant="subtitle1">Latest posts</Typography>
-              <Typography variant="body2">{topic.posts[-1].name}</Typography>
+              <Typography variant="body2">
+                {topic.posts ? topic.posts[-1].name : "No posts"}
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
