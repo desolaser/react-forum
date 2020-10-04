@@ -21,17 +21,17 @@ const AddTopicForm = ({ data, handleChange, handleSubmit }) => {
   return (
     <Container className={classes.root}>
       <Paper className={classes.paper}>
-        <Typography variant="h4">Add topic</Typography>
+        <Typography variant="h4">Add post</Typography>
         <FormInput
-          label="Name"
-          name="name"
-          value={data.name}
+          label="Title"
+          name="title"
+          value={data.title}
           onChange={handleChange}
         />
         <FormInput
-          label="Description"
-          name="description"
-          value={data.description}
+          label="Text"
+          name="text"
+          value={data.text}
           onChange={handleChange}
         />
         <Button

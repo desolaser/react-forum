@@ -1,2 +1,2 @@
-import AddTopicPage from "./AddPostPage";
-export default AddTopicPage;
+import AddPostPage from "./AddPostPage";
+export default AddPostPage;
