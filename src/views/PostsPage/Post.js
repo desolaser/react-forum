@@ -42,7 +42,7 @@ const Post = ({ post }) => {
                   {post.title}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                  John Doe - 12-24-2012
+                  {post.user.username} - {post.created_at}
                 </Typography>
               </Grid>
             </Grid>
