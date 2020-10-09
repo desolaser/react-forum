@@ -92,12 +92,18 @@ class Firebase {
         const toWait = [];
         const posts = [];
         Object.keys(topic.posts).forEach((post) => {
-          console.log(post);
           const method = this.post(post)
             .once("value")
-            .then((snapshot) => {
+            .then(async (snapshot) => {
               const post = snapshot.val();
               post.id = snapshot.key;
+              await this.user(post.user)
+                .once("value")
+                .then((snapshot) => {
+                  const user = snapshot.val();
+                  user.id = snapshot.key;
+                  post.user = user;
+                });
               posts.push(post);
             });
           toWait.push(method);
@@ -133,6 +139,14 @@ class Firebase {
             });
           toWait.push(method);
         });
+        const user_method = this.user(post.user)
+          .once("value")
+          .then((snapshot) => {
+            const user = snapshot.val();
+            user.id = snapshot.key;
+            post.user = user;
+          });
+        toWait.push(user_method);
         post.comments = comments;
         await Promise.all(toWait);
         return post;

@@ -24,10 +24,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Post = () => {
+const Post = ({ post }) => {
   const classes = useStyles();
   return (
-    <Link to="/single-post">
+    <Link to={`/single-post/${post.id}`}>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
           <Grid item>
@@ -38,8 +38,8 @@ const Post = () => {
           <Grid item xs={12} sm container>
             <Grid item xs={8} container direction="column" spacing={4}>
               <Grid item xs>
-                <Typography gutterBottom variant="subtitle1">
-                  Create a react project from scratch
+                <Typography gutterBottom variant="h6">
+                  {post.title}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
                   John Doe - 12-24-2012
@@ -48,7 +48,9 @@ const Post = () => {
             </Grid>
             <Grid item xs={2}>
               <Typography variant="subtitle1">Replies</Typography>
-              <Typography variant="body2">18</Typography>
+              <Typography variant="body2">
+                {post.comments && Object.keys(post.comments).length}
+              </Typography>
             </Grid>
             <Grid item xs={2}>
               <Typography variant="subtitle1">Views</Typography>
