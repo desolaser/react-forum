@@ -14,7 +14,6 @@ import TitleBar from "../../components/TitleBar";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    margin: "30px 15px",
   },
 }));
 
