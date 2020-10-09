@@ -49,7 +49,7 @@ const Post = ({ post }) => {
             <Grid item xs={2}>
               <Typography variant="subtitle1">Replies</Typography>
               <Typography variant="body2">
-                {post.comments && Object.keys(post.comments).length}
+                {post.comments ? Object.keys(post.comments).length : 0}
               </Typography>
             </Grid>
             <Grid item xs={2}>
