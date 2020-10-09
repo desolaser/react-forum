@@ -92,14 +92,12 @@ class Firebase {
         const toWait = [];
         const posts = [];
         Object.keys(topic.posts).forEach((post) => {
+          console.log(post);
           const method = this.post(post)
             .once("value")
             .then((snapshot) => {
-              const post = {
-                id: snapshot.key,
-                number: snapshot.val().number,
-                text: snapshot.val().text,
-              };
+              const post = snapshot.val();
+              post.id = snapshot.key;
               posts.push(post);
             });
           toWait.push(method);
@@ -116,11 +114,51 @@ class Firebase {
 
   // *** Post API ***
   post = (id) => this.db.ref(`/posts/${id}`);
+  postWithComments = async (id, callback) => {
+    this.post(id)
+      .once("value")
+      .then(async (snapshot) => {
+        const post = snapshot.val();
+        post.id = snapshot.key;
+        if (post.comments === undefined) return post;
+        const toWait = [];
+        const comments = [];
+        Object.keys(post.comments).forEach((comment) => {
+          const method = this.post(comment)
+            .once("value")
+            .then((snapshot) => {
+              const comment = snapshot.val();
+              comment.id = snapshot.key;
+              comments.push(comment);
+            });
+          toWait.push(method);
+        });
+        post.comments = comments;
+        await Promise.all(toWait);
+        return post;
+      })
+      .then(callback);
+  };
 
   posts = () => this.db.ref(`/posts`);
 
   // *** Comments API ***
   comment = (id) => this.db.ref(`/comments/${id}`);
+  commentWithUser = (id, callback) => {
+    this.comment(id)
+      .once("value")
+      .then(async (snapshot) => {
+        const comment = snapshot.val();
+        comment.id = snapshot.key;
+        this.user(comment.user)
+          .once("value")
+          .then((snapshot) => {
+            const user = snapshot.val();
+            comment.user = user;
+          });
+      })
+      .then(callback);
+  };
 
   comments = () => this.db.ref(`/comments`);
 }
