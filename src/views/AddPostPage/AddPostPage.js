@@ -7,7 +7,7 @@ const AddPostPage = ({ history, match }) => {
   const firebase = useFirebase();
   const auth = useSelector((store) => store.auth);
   const [data, setData] = useState({
-    number: "",
+    title: "",
     text: "",
   });
 
@@ -19,13 +19,14 @@ const AddPostPage = ({ history, match }) => {
     firebase
       .posts()
       .push({
-        number: data.number,
+        title: data.title,
         text: data.text,
+        created_at: Date(),
         user: auth.uid,
       })
       .then(() => {
         firebase
-          .topics()
+          .posts()
           .limitToLast(1)
           .on("child_added", (childSnapshot) => {
             const key = childSnapshot.key;
