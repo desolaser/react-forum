@@ -42,7 +42,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={MainPage} />
             <Route path="/posts/:id" exact component={PostsPage} />
-            <Route path="/single-post" exact component={SinglePostPage} />
+            <Route path="/single-post/:id" exact component={SinglePostPage} />
             <PrivateRoute path="/profile" exact component={ProfilePage} />
             <PrivateRoute
               path="/add-category"
