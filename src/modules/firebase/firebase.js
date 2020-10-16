@@ -120,6 +120,7 @@ class Firebase {
 
   // *** Post API ***
   post = (id) => this.db.ref(`/posts/${id}`);
+  postComments = (id) => this.db.ref(`/posts/${id}/comments`);
   postWithComments = async (id, callback) => {
     this.post(id)
       .once("value")
@@ -130,7 +131,7 @@ class Firebase {
         const toWait = [];
         const comments = [];
         Object.keys(post.comments).forEach((comment) => {
-          const method = this.post(comment)
+          const method = this.comment(comment)
             .once("value")
             .then((snapshot) => {
               const comment = snapshot.val();
@@ -158,22 +159,6 @@ class Firebase {
 
   // *** Comments API ***
   comment = (id) => this.db.ref(`/comments/${id}`);
-  commentWithUser = (id, callback) => {
-    this.comment(id)
-      .once("value")
-      .then(async (snapshot) => {
-        const comment = snapshot.val();
-        comment.id = snapshot.key;
-        this.user(comment.user)
-          .once("value")
-          .then((snapshot) => {
-            const user = snapshot.val();
-            comment.user = user;
-          });
-      })
-      .then(callback);
-  };
-
   comments = () => this.db.ref(`/comments`);
 }
 
