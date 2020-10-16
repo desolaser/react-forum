@@ -30,6 +30,7 @@ Topic:
 
 Post: 
     - number
+    - title
     - text
     - comments
     - user
