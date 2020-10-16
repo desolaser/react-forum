@@ -38,15 +38,19 @@ const AddCommentForm = ({ post_id }) => {
           .limitToLast(1)
           .on("child_added", (childSnapshot) => {
             const key = childSnapshot.key;
+            console.log(key);
             firebase.postComments(post_id).update({
               [key]: true,
+            })
+            .then(() => {
+              alert("Comment added");
+              window.location.reload(false);
             });
           });
       })
       .catch(function (error) {
         console.error("Error adding comment: ", error);
       });
-    alert("Comment added");
   };
 
   return (

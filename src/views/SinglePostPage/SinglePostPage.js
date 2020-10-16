@@ -8,6 +8,7 @@ import { useFirebase } from "../../modules/firebase";
 
 import UserProfile from "./UserProfile";
 import Content from "./Content";
+import AddCommentForm from "./AddCommentForm";
 import CardNote from "../../components/CardNote";
 import TitleBar from "../../components/TitleBar";
 
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SinglePostPage = ({ match, history }) => {
+const SinglePostPage = ({ match }) => {
   const classes = useStyles();
   const firebase = useFirebase();
   const [user, setUser] = useState({});
@@ -30,18 +31,9 @@ const SinglePostPage = ({ match, history }) => {
 
   useEffect(() => {
     firebase.postWithComments(match.params.id, async (postData) => {
-      const toWait = [];
-      postData.comments &&
-        postData.comments.forEach((comment) => {
-          const method = firebase.commentWithUser(comment, (commentData) => {
-            comment = commentData;
-          });
-          toWait.push(method);
-        });
-      await Promise.all(toWait);
       setPost(postData);
       firebase
-        .user(postData.user)
+        .user(postData.user.id)
         .once("value")
         .then((snapshot) => {
           setUser(snapshot.val());
@@ -50,16 +42,10 @@ const SinglePostPage = ({ match, history }) => {
     });
   }, []);
 
-  const addComment = () => {
-    history.push("/add-comment/" + post.id);
-  };
-
   return (
     <Container className={classes.root}>
       <TitleBar
         title={loading ? "Loading post" : `Posts page`}
-        buttonText="Add comment"
-        onButtonClick={authExists && addComment}
       />
       {loading ? (
         <CardNote
@@ -79,6 +65,7 @@ const SinglePostPage = ({ match, history }) => {
                 <Content post={comment} />
               </Grid>
             ))}
+          {authExists && <AddCommentForm post_id={match.params.id} />}          
         </>
       )}
     </Container>
