@@ -10,7 +10,7 @@ import Pagination from "./Pagination";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "10px 20px",
-    background: "#1D3557",
+    background: theme.palette.primary.dark,
   },
   filterTitle: {
     color: "white",

@@ -14,17 +14,13 @@ import LoginModal from "./LoginModal";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: theme.palette.navbarColor,
+    background: theme.palette.primary.light,
   },
   toolbarButtons: {
     marginLeft: "auto",
   },
   button: {
-    background: theme.palette.primaryLightColor,
     marginLeft: "10px",
-    "&:hover": {
-      background: theme.palette.primaryDarkColor,
-    },
   },
 }));
 
@@ -58,6 +54,13 @@ const NavBar = () => {
     alert("You logged out");
   };
 
+  const LoginContent = React.forwardRef((props, ref) => (
+    <LoginModal {...props} ref={ref} />
+  ));
+  const RegisterContent = React.forwardRef((props, ref) => (
+    <RegisterModal {...props} ref={ref} />
+  ));
+
   const authExists =
     Object.keys(auth).length !== 0 && auth.constructor === Object;
 
@@ -65,18 +68,32 @@ const NavBar = () => {
     <AppBar position="static" className={classes.root}>
       <Toolbar className={classes.toolbar}>
         <div className={classes.toolbarButtons}>
+          <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+            <Button
+              color="primary"
+              variant="contained"
+              className={classes.button}
+            >
+              Home
+            </Button>
+          </Link>
           {authExists && (
             <>
               <Link
                 to="/profile"
                 style={{ color: "white", textDecoration: "none" }}
               >
-                <Button color="inherit" className={classes.button}>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  className={classes.button}
+                >
                   Profile
                 </Button>
               </Link>
               <Button
-                color="inherit"
+                color="primary"
+                variant="contained"
                 className={classes.button}
                 onClick={handleSignOut}
               >
@@ -87,14 +104,16 @@ const NavBar = () => {
           {!authExists && (
             <>
               <Button
-                color="inherit"
+                color="primary"
+                variant="contained"
                 className={classes.button}
                 onClick={handleRegisterOpen}
               >
                 Sign up
               </Button>
               <Button
-                color="inherit"
+                color="primary"
+                variant="contained"
                 className={classes.button}
                 onClick={handleLoginOpen}
               >
@@ -110,7 +129,7 @@ const NavBar = () => {
         aria-labelledby="sign-in-modal"
         aria-describedby="sign-in-modal-description"
       >
-        <RegisterModal closeModal={handleRegisterClose} />
+        <RegisterContent closeModal={handleRegisterClose} />
       </Modal>
       <Modal
         open={loginOpen}
@@ -118,7 +137,7 @@ const NavBar = () => {
         aria-labelledby="sign-up-modal"
         aria-describedby="sign-up-modal-description"
       >
-        <LoginModal closeModal={handleLoginClose} />
+        <LoginContent closeModal={handleLoginClose} />
       </Modal>
     </AppBar>
   );

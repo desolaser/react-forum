@@ -26,10 +26,10 @@ const Content = ({ post }) => {
       <Paper className={classes.paper}>
         <Grid container spacing={2} className={classes.date}>
           <Grid item xs={10}>
-            <Typography variant="body1">{post.date}</Typography>
+            <Typography variant="h6">{post.title}</Typography>
           </Grid>
           <Grid item xs={2} align="right">
-            <Typography variant="body1">#{post.number}</Typography>
+            <Typography variant="body1">{post.created_at}</Typography>
           </Grid>
         </Grid>
         <Divider />

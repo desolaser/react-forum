@@ -40,6 +40,126 @@ class Firebase {
   user = (uid) => this.db.ref(`/users/${uid}`);
 
   users = () => this.db.ref(`/users`);
+
+  // *** Category API ***
+  category = (id) => this.db.ref(`/categories/${id}`);
+  categoryTopics = (id) => this.db.ref(`/categories/${id}/topics`);
+
+  categories = () => this.db.ref(`/categories`);
+  categoriesWithTopics = async (callback) => {
+    this.categories()
+      .once("value")
+      .then(async (snapshot) => {
+        let dataCategories = snapshot.val();
+        let toWait = [];
+        Object.keys(dataCategories).forEach((category_id) => {
+          let topics = [];
+          dataCategories[category_id].id = category_id;
+          if (dataCategories[category_id].topics !== undefined) {
+            Object.keys(dataCategories[category_id].topics).forEach((topic) => {
+              const method = this.topic(topic)
+                .once("value")
+                .then((snapshot) => {
+                  const value = snapshot.val();
+                  const topic = {
+                    id: snapshot.key,
+                    name: value.name,
+                    description: value.description,
+                    user: value.user,
+                  };
+                  topics.push(topic);
+                });
+              toWait.push(method);
+            });
+            dataCategories[category_id].topics = topics;
+          }
+        });
+        await Promise.all(toWait);
+        return dataCategories;
+      })
+      .then(callback);
+  };
+
+  // *** Topic API ***
+  topic = (id) => this.db.ref(`/topics/${id}`);
+  topicWithPosts = async (id, callback) => {
+    this.topic(id)
+      .once("value")
+      .then(async (snapshot) => {
+        const topic = snapshot.val();
+        topic.id = snapshot.key;
+        if (topic.posts === undefined) return topic;
+        const toWait = [];
+        const posts = [];
+        Object.keys(topic.posts).forEach((post) => {
+          const method = this.post(post)
+            .once("value")
+            .then(async (snapshot) => {
+              const post = snapshot.val();
+              post.id = snapshot.key;
+              await this.user(post.user)
+                .once("value")
+                .then((snapshot) => {
+                  const user = snapshot.val();
+                  user.id = snapshot.key;
+                  post.user = user;
+                });
+              posts.push(post);
+            });
+          toWait.push(method);
+        });
+        topic.posts = posts;
+        await Promise.all(toWait);
+        return topic;
+      })
+      .then(callback);
+  };
+
+  topics = () => this.db.ref(`/topics`);
+  topicPosts = (id) => this.db.ref(`/topics/${id}/posts`);
+
+  // *** Post API ***
+  post = (id) => this.db.ref(`/posts/${id}`);
+  postComments = (id) => this.db.ref(`/posts/${id}/comments`);
+  postWithComments = async (id, callback) => {
+    this.post(id)
+      .once("value")
+      .then(async (snapshot) => {
+        const post = snapshot.val();
+        post.id = snapshot.key;
+        if (post.comments === undefined) return post;
+        const toWait = [];
+        const comments = [];
+        Object.keys(post.comments).forEach((comment) => {
+          const method = this.comment(comment)
+            .once("value")
+            .then((snapshot) => {
+              const comment = snapshot.val();
+              comment.id = snapshot.key;
+              comments.push(comment);
+            });
+          toWait.push(method);
+        });
+        const user_method = this.user(post.user)
+          .once("value")
+          .then((snapshot) => {
+            const user = snapshot.val();
+            user.id = snapshot.key;
+            post.user = user;
+          });
+        toWait.push(user_method);
+        post.comments = comments;
+        await Promise.all(toWait);
+        return post;
+      })
+      .then(callback);
+  };
+
+  posts = () => this.db.ref(`/posts`);
+
+  // *** Comments API ***
+  comment = (id) => this.db.ref(`/comments/${id}`);
+  comments = () => this.db.ref(`/comments`);
 }
 
 export default Firebase;

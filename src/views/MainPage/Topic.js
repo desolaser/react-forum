@@ -16,18 +16,12 @@ const useStyles = makeStyles((theme) => ({
     width: 50,
     height: 50,
   },
-  img: {
-    margin: "auto",
-    display: "block",
-    maxWidth: "100%",
-    maxHeight: "100%",
-  },
 }));
 
-const Post = ({ post }) => {
+const Topic = ({ topic }) => {
   const classes = useStyles();
   return (
-    <Link to={`/single-post/${post.id}`}>
+    <Link to={`/posts/${topic.id}`}>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
           <Grid item>
@@ -36,20 +30,26 @@ const Post = ({ post }) => {
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>
-            <Grid item sm={12} xs={10} container direction="column" spacing={4}>
+            <Grid item xs={8} container direction="column" spacing={4}>
               <Grid item xs>
-                <Typography gutterBottom variant="h6">
-                  {post.title}
+                <Typography gutterBottom variant="subtitle1">
+                  {topic.name}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                  {post.user.username} - {post.created_at}
+                  {topic.description}
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item sm={12} xs={2}>
-              <Typography variant="subtitle1">Replies</Typography>
+            <Grid item xs={2}>
+              <Typography variant="subtitle1">Posts</Typography>
               <Typography variant="body2">
-                {post.comments ? Object.keys(post.comments).length : 0}
+                {topic.posts ? topic.posts.length : "0"}
+              </Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography variant="subtitle1">Latest posts</Typography>
+              <Typography variant="body2">
+                {topic.posts ? topic.posts[-1].name : "No posts"}
               </Typography>
             </Grid>
           </Grid>
@@ -59,4 +59,4 @@ const Post = ({ post }) => {
   );
 };
 
-export default Post;
+export default Topic;

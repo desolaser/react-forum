@@ -37,17 +37,19 @@ const UserProfile = ({ user }) => {
         <Avatar className={classes.avatar}>
           <DraftsIcon className={classes.image} />
         </Avatar>
-        <Typography variant="h5" align="center">
-          {user.name}
-        </Typography>
         <Typography variant="h6" align="center">
+          {user.username}
+        </Typography>
+        <Typography variant="body1" align="center">
           {user.role}
         </Typography>
-        <Typography variant="subtitle1">Posts: {user.posts.length}</Typography>
         <Typography variant="subtitle1">
-          Comments: {user.comments.length}
+          Posts: {user.posts ? user.posts.length : 0}
         </Typography>
-        <Typography variant="subtitle1">Joined: {user.createdAt}</Typography>
+        <Typography variant="subtitle1">
+          Comments: {user.comments ? user.comments.length : 0}
+        </Typography>
+        <Typography variant="subtitle1">Joined: {user.created_at}</Typography>
       </Paper>
     </Grid>
   );
