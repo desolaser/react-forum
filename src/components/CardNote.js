@@ -40,7 +40,7 @@ const CardNote = ({ title, text, onClick, buttonText }) => {
       </CardContent>
       {onClick && (
         <CardActions>
-          <Button color="primary" size="small" onClick={onClick} size="small">
+          <Button color="primary" size="small" onClick={onClick}>
             {buttonText}
           </Button>
         </CardActions>
