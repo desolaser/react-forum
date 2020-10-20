@@ -25,7 +25,7 @@ const MainPage = ({ history }) => {
       setCategories(data);
       setLoading(false);
     });
-  }, []);
+  }, [firebase]);
 
   return (
     <Container>

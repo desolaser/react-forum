@@ -40,7 +40,7 @@ const SinglePostPage = ({ match }) => {
           setLoading(false);
         });
     });
-  }, []);
+  }, [firebase, match.params.id]);
 
   return (
     <Container className={classes.root}>
