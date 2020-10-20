@@ -36,7 +36,7 @@ const Post = ({ post }) => {
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>
-            <Grid item sm={12} xs={10} container direction="column" spacing={4}>
+            <Grid item xs={8} container direction="column" spacing={4}>
               <Grid item xs>
                 <Typography gutterBottom variant="h6">
                   {post.title}
@@ -46,7 +46,7 @@ const Post = ({ post }) => {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item sm={12} xs={2}>
+            <Grid item xs={4}>
               <Typography variant="subtitle1">Replies</Typography>
               <Typography variant="body2">
                 {post.comments ? Object.keys(post.comments).length : 0}
